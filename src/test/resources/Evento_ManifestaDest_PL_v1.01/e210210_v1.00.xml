@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:detEvento versao="1.00" xmlns:p="http://www.portalfiscal.inf.br/nfe" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.portalfiscal.inf.br/nfe e210210_v1.00.xsd ">
+  <p:descEvento>Ciencia da Operacao</p:descEvento>
+</p:detEvento>

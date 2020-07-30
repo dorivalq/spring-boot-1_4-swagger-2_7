@@ -1,13 +1,9 @@
 package com.example.springboot.config;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import springfox.documentation.swagger.web.ApiKeyVehicle;
-import springfox.documentation.swagger.web.SecurityConfiguration;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -16,8 +12,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.
             authorizeRequests()
-            //permite o mule acessar o danfe sem precisar de autenticacao
-            .antMatchers(HttpMethod.GET, "/outbound/nfe/danfe/**").permitAll();
+            //.antMatchers(HttpMethod.GET, "/outbound/nfe/danfe/**").permitAll()
+            .anyRequest().permitAll()
+            ;
     }
     
     @Override
@@ -29,7 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             //Imagem do Danfe na tela de empresa
             .antMatchers(HttpMethod.GET, "/companies/image-danfe/**")
             //allow access to html pages
-            //.antMatchers("/")
+            .antMatchers("/")
+            .antMatchers("/**/**")
             .antMatchers("/index.html")
             .antMatchers("/assets/**/*.*")
             .antMatchers("/**/*.js")

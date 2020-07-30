@@ -1,16 +1,15 @@
-/*package com.example.springboot;
+package com.example.springboot;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.net.URL;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.ResponseEntity;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -24,7 +23,8 @@ public class HelloControllerIT {
 	@Autowired
 	private TestRestTemplate template;
 
-    @BeforeEach
+    //@BeforeEach
+	@Before
     public void setUp() throws Exception {
         this.base = new URL("http://localhost:" + port + "/");
     }
@@ -36,4 +36,3 @@ public class HelloControllerIT {
         assertThat(response.getBody().equals("Greetings from Spring Boot!"));
     }
 }
-*/
