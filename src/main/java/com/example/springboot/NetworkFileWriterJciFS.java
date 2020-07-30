@@ -8,10 +8,10 @@ import jcifs.smb.SmbException;
 import jcifs.smb.SmbFile;
 import jcifs.smb.SmbFileOutputStream;
 
-public class Main {
+public class NetworkFileWriterJciFS {
 	public static void main(String[] args) throws Exception {
 //		new Main().writeOutputOnly();
-		new Main().writeOutpuStreamAndPrintFile();
+		new NetworkFileWriterJciFS().writeOutpuStreamAndPrintFile();
 	}
 
 	private void writeOutpuStreamAndPrintFile() throws MalformedURLException, SmbException, IOException {
@@ -26,7 +26,6 @@ public class Main {
 			}
 			sout.write((new Date() + ": Teste de String com novo arquivo").getBytes());
 			
-			// file2.createNewFile();
 			url2 = "smb://dorival:2008@vm-win7/users/Public/";
 			file = new SmbFile(smbUrl);
 			for (String i : file.list()) {
